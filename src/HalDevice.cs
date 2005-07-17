@@ -238,6 +238,13 @@ namespace Hal
 			return udi;
 		}
 		
+		public string Udi
+		{
+			get {
+				return udi;
+			}
+		}
+		
 		public bool Exists 
 		{
 			get {
