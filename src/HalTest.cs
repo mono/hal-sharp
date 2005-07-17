@@ -29,13 +29,15 @@
 using System;
 using Hal;
 using Gtk;
+using System.Collections;
 
 public class Entry
 {
 	public static void Main()
 	{
 		Application.Init();
-		new GtkTest();
+		new CdromTest();
+		//new GtkTest();
 		Application.Run();
 		
 		/* Context ctx = new Context(); */
@@ -53,6 +55,39 @@ public class Entry
 		string [] capabilities = device.GetPropertyStringList("info.capabilities");
 		foreach(string cap in capabilities)
 			Console.WriteLine(cap);*/
+	}
+}
+
+public class CdromTest
+{
+	private Context ctx;
+	private ArrayList disks = new ArrayList();
+	
+	public CdromTest()
+	{
+		ctx = new Context();
+		
+		ctx.DeviceAdded += OnDeviceAdded;
+		ctx.DeviceRemoved += OnDeviceRemoved;
+	}
+	
+	private void OnDeviceAdded(object o, DeviceAddedArgs args)
+	{
+		Device parentDevice = new Device(ctx, args.Device["info.parent"]);
+		
+		if(parentDevice["storage.drive_type"].Equals("cdrom")) {
+			Console.WriteLine("Found drive with disk: {0} ({1})", 
+				parentDevice,  
+				parentDevice["storage.model"]);
+		}
+	}
+	
+	private void OnDeviceRemoved(object o, DeviceRemovedArgs args)
+	{
+		if(disks.IndexOf(args.Device.Udi) >= 0) {
+			Console.WriteLine("Disk removed: {0}", args.Device);
+			disks.Remove(args.Device.Udi);
+		}
 	}
 }
 
