@@ -1,0 +1,9 @@
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+[assembly: AssemblyVersion("@VERSION@")]
+[assembly: AssemblyTitle ("hal-sharp")]
+[assembly: AssemblyDescription ("HAL API Bindings")]
+[assembly: AssemblyCopyright ("Copyright (c) 2005 Novell, Inc.")]
+[assembly: AssemblyCompany ("Novell, Inc.")]
+

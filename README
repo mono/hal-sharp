@@ -1,0 +1,7 @@
+These bindings aren't complete, but for the most part are functional with
+the exception of callback support. Missing pieces are:
+
+	* Agent Support
+	* PSI Support
+	* Callback Support
+

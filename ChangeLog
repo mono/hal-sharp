@@ -1,0 +1,10 @@
+2005-07-16 Aaron Bockover <aaron@aaronbock.net>
+
+	* hal-sharp: Version 0.1 Committed to Mono SVN
+	* hal-sharp: Most of HAL 0.5.2 API binding complete, decent set
+	of classes, and most works. Bindings missing:
+
+		- PSI Functions
+		- Agent Functions
+		- Callbacks
+
