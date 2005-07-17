@@ -28,15 +28,20 @@
  
 using System;
 using Hal;
+using Gtk;
 
 public class Entry
 {
 	public static void Main()
 	{
-		Context ctx = new Context(DbusBusType.System, true);
+		Application.Init();
+		new GtkTest();
+		Application.Run();
 		
-		foreach(Device device in Device.FindByCapability(ctx, "net"))
-			device.Print();
+		/* Context ctx = new Context(); */
+		
+		/*foreach(Device device in Device.FindByCapability(ctx, "net"))
+			device.Print();*/
 		
 		/*foreach(Device device in Device.GetAll(ctx))
 			device.Print();*/
@@ -48,5 +53,67 @@ public class Entry
 		string [] capabilities = device.GetPropertyStringList("info.capabilities");
 		foreach(string cap in capabilities)
 			Console.WriteLine(cap);*/
+	}
+}
+
+public class GtkTest
+{
+	private Window win;
+	private Context ctx;
+	
+	public GtkTest()
+	{
+		ctx = new Context();
+		ctx.DeviceAdded += OnHalDeviceAdded;
+		ctx.DeviceRemoved += OnHalDeviceRemoved;
+		ctx.DeviceCondition += OnHalDeviceCondition;
+		ctx.DeviceLostCapability += OnHalDeviceLostCapability;
+		ctx.DeviceNewCapability += OnHalDeviceNewCapability;
+		ctx.DevicePropertyModified += OnHalDevicePropertyModified;
+		
+		win = new Window("HAL Event Loop Test");
+		win.DeleteEvent += OnWindowDeleteEvent;
+		win.ShowAll();
+	}
+	
+	public void OnHalDeviceAdded(object o, DeviceAddedArgs args)
+	{
+		Console.WriteLine("Device Added: " + args.Device);
+		args.Device.WatchProperties = true;
+	}
+	
+	public void OnHalDeviceRemoved(object o, DeviceRemovedArgs args)
+	{
+		Console.WriteLine("Device Removed: " + args.Device);
+	}
+	
+	public void OnHalDeviceCondition(object o, DeviceConditionArgs args)
+	{
+		Console.WriteLine("Device Condition: " + args.Device);
+	}
+	
+	public void OnHalDeviceLostCapability(object o, 
+		DeviceLostCapabilityArgs args)
+	{
+		Console.WriteLine("Device Lost Capability: " + args.Device);	
+	}
+	
+	public void OnHalDeviceNewCapability(object o,
+		DeviceNewCapabilityArgs args)
+	{
+		Console.WriteLine("Device New Capability: " + args.Device);
+	}
+	
+	public void OnHalDevicePropertyModified(object o,
+		DevicePropertyModifiedArgs args)
+	{
+		Console.WriteLine("Device Property Modified: " + args.Device +
+			", Key: " + args.Key + ", Is Removed: " + args.IsRemoved +
+			", Is Added: " + args.IsAdded);
+	}
+	
+	public void OnWindowDeleteEvent(object o, EventArgs args)
+	{
+		Application.Quit();
 	}
 }

@@ -1,3 +1,12 @@
+2005-07-17 Aaron Bockover <aaron@aaronbock.net>
+
+	* HalTest.cs: GTK test for events using main context
+	* HalContext.cs: Changed some constructors around, now defaults to 
+	DbusBusType.System, added event system for HAL callbacks
+	* HalUnmanaged.cs: Added callback set signatures
+	* HalCallbacks.cs: Contains all callback and event delegates, and 
+	event delegate args classes
+
 2005-07-16 Aaron Bockover <aaron@aaronbock.net>
 
 	* hal-sharp: Version 0.1 Committed to Mono SVN

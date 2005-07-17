@@ -7,7 +7,7 @@
       <Entry build="True" name="hal-sharp" />
     </Configuration>
   </Configurations>
-  <StartMode startupentry="Hal" single="True">
+  <StartMode startupentry="hal-sharp" single="True">
     <Execute type="None" entry="hal-sharp" />
   </StartMode>
   <Entries>

@@ -2,7 +2,7 @@ halsharpdir=$(pkglibdir)
 halsharp_SCRIPTS = hal-sharp.dll
 EXTRA_DIST = $(halsharp_sources) HalTest.cs
 CLEANFILES = hal-sharp.dll AssemblyInfo.cs
-DISTCLEANFILES = Makefile.in
+DISTCLEANFILES = Makefile.in *.exe *.mdb
 
 halsharp_sources = \
 	HalContext.cs \
@@ -10,6 +10,7 @@ halsharp_sources = \
 	HalUnmanaged.cs \
 	HalDefines.cs \
 	HalExceptions.cs \
+	HalCallbacks.cs \
 	AssemblyInfo.cs
 
 halsharp_build_sources = $(addprefix $(srcdir)/, $(halsharp_sources))

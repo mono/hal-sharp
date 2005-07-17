@@ -59,6 +59,32 @@ namespace Hal
 		[DllImport("libhal")]
 		public static extern bool libhal_ctx_free(HandleRef ctx);
 
+		// Callback Set Functions
+
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_added(HandleRef ctx,
+			DeviceAddedCallback cb);
+
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_removed(HandleRef ctx,
+			DeviceRemovedCallback cb);
+			
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_new_capability(
+			HandleRef ctx, DeviceNewCapabilityCallback cb);
+
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_lost_capability(
+			HandleRef ctx, DeviceLostCapabilityCallback cb);
+			
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_property_modified(
+			HandleRef ctx, DevicePropertyModifiedCallback cb);
+		
+		[DllImport("libhal")]
+		public static extern bool libhal_ctx_set_device_condition(
+			HandleRef ctx, DeviceConditionCallback cb);
+			
 		// String Functions
 
 		[DllImport("libhal")]
@@ -225,5 +251,14 @@ namespace Hal
 		[DllImport("libdbus-1")]
 		public static extern IntPtr dbus_bus_get(DbusBusType bus_typed, 
 			IntPtr error);
+		
+		[DllImport("libdbus-glib-1")]
+		public static extern void dbus_connection_setup_with_g_main(
+			IntPtr dbus_connection, IntPtr g_main_context);
+			
+		// ughhh
+		[DllImport("libglib-2.0.so")]
+		public static extern IntPtr g_main_context_default();
+		
 	}
 }
