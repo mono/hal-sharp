@@ -1,5 +1,8 @@
 2005-11-18 Aaron Bockover  <aaron@aaronbock.net>
 	
+	* src/HalContext.cs:
+	* src/HalDevice.cs: Replaced Marshal.PtrToStringAnsi with 
+	UnixMarshal.PtrToString
 	* src/HalContext.cs: Added a public Context(IntPtr) constructor to 
 	enable using an already created/initialized native context
 	* src/Makefile.am: renamed hal-sharp.exe test to hal-test.exe

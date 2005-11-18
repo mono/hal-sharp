@@ -29,6 +29,7 @@
 using System;
 using System.Collections;
 using System.Runtime.InteropServices;
+using Mono.Unix;
 
 namespace Hal
 {
@@ -257,7 +258,7 @@ namespace Hal
                 DeviceAddedHandler handler = addedHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
                     DeviceAddedArgs args = new DeviceAddedArgs();
                     args.Device = new Device(this, udi);
                     handler(this, args);
@@ -271,7 +272,7 @@ namespace Hal
                 DeviceRemovedHandler handler = removedHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
                     DeviceRemovedArgs args = new DeviceRemovedArgs();
                     args.Device = new Device(this, udi);
                     handler(this, args);
@@ -286,8 +287,8 @@ namespace Hal
                 DeviceNewCapabilityHandler handler = newCapHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
-                    string cap = Marshal.PtrToStringAnsi(capPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
+                    string cap = UnixMarshal.PtrToString(capPtr);
                     DeviceNewCapabilityArgs args = 
                         new DeviceNewCapabilityArgs();
                     args.Device = new Device(this, udi);
@@ -304,8 +305,8 @@ namespace Hal
                 DeviceLostCapabilityHandler handler = lostCapHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
-                    string cap = Marshal.PtrToStringAnsi(capPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
+                    string cap = UnixMarshal.PtrToString(capPtr);
                     DeviceLostCapabilityArgs args = 
                         new DeviceLostCapabilityArgs();
                     args.Device = new Device(this, udi);
@@ -322,8 +323,8 @@ namespace Hal
                 DevicePropertyModifiedHandler handler = propModHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
-                    string key = Marshal.PtrToStringAnsi(keyPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
+                    string key = UnixMarshal.PtrToString(keyPtr);
                     DevicePropertyModifiedArgs args = 
                         new DevicePropertyModifiedArgs();
                     args.Device = new Device(this, udi);
@@ -342,9 +343,9 @@ namespace Hal
                 DeviceConditionHandler handler = condHandler;
                 
                 if(handler != null) {
-                    string udi = Marshal.PtrToStringAnsi(udiPtr);
-                    string name = Marshal.PtrToStringAnsi(namePtr);
-                    string details = Marshal.PtrToStringAnsi(detailsPtr);
+                    string udi = UnixMarshal.PtrToString(udiPtr);
+                    string name = UnixMarshal.PtrToString(namePtr);
+                    string details = UnixMarshal.PtrToString(detailsPtr);
                     DeviceConditionArgs args = new DeviceConditionArgs();
                     args.Device = new Device(this, udi);
                     args.ConditionName = name;

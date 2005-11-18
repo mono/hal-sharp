@@ -94,7 +94,7 @@ namespace Hal
         public string GetPropertyString(string key)
         {
             IntPtr ptr = Unmanaged.libhal_device_get_property_string(ctx.Raw, udi, key, IntPtr.Zero);
-            string str = Marshal.PtrToStringAnsi(ptr);
+            string str = UnixMarshal.PtrToString(ptr);
             Unmanaged.libhal_free_string(ptr);
             return str;
         }
