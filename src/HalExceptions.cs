@@ -30,11 +30,11 @@ using System;
 
 namespace Hal
 {
-	public class HalException : ApplicationException
-	{
-		public HalException(string message) : base(message)
-		{
+    public class HalException : ApplicationException
+    {
+        public HalException(string message) : base(message)
+        {
 
-		}
-	}
+        }
+    }
 }

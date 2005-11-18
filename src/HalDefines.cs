@@ -28,19 +28,19 @@
  
 namespace Hal
 {
-	public enum DbusBusType : uint {
-		Session,
-		System,
-		Starter
-	};
-	
-	public enum PropertyType : int {
-		Invalid = (int)'\0',
-		Boolean = (int)'b',
-		Int32 =   (int)'i',
-		Uint64 =  (int)'t',
-		Double =  (int)'d',
-		String =  (int)'s',
-		StringList = ((int)(PropertyType.String  << 8) + ('l'))
-	};
+    public enum DbusBusType : uint {
+        Session,
+        System,
+        Starter
+    };
+    
+    public enum PropertyType : int {
+        Invalid = (int)'\0',
+        Boolean = (int)'b',
+        Int32 =   (int)'i',
+        Uint64 =  (int)'t',
+        Double =  (int)'d',
+        String =  (int)'s',
+        StringList = ((int)(PropertyType.String  << 8) + ('l'))
+    };
 }

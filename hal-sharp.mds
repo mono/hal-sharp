@@ -1,10 +1,10 @@
 <Combine name="Hal" fileversion="2.0">
-  <Configurations>
+  <Configurations active="Debug">
     <Configuration name="Debug" ctype="CombineConfiguration">
-      <Entry build="True" name="hal-sharp" />
+      <Entry configuration="Debug" build="True" name="hal-sharp" />
     </Configuration>
     <Configuration name="Release" ctype="CombineConfiguration">
-      <Entry build="True" name="hal-sharp" />
+      <Entry configuration="Release" build="True" name="hal-sharp" />
     </Configuration>
   </Configurations>
   <StartMode startupentry="hal-sharp" single="True">

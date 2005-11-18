@@ -1,3 +1,9 @@
+2005-11-18 Aaron Bockover  <aaron@aaronbock.net>
+
+	* src/Makefile.am: Added rule to build HalTest.cs
+	* src/HalContext.cs: Removed destructor, must use Dispose()
+	* src/*.cs: Tabs->Spaces, reformatted code a little
+
 2005-07-17 Aaron Bockover <aaron@aaronbock.net>
 
 	* HalTest.cs: GTK test for events using main context

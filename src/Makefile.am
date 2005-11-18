@@ -1,8 +1,9 @@
+MCS_FLAGS=-debug
 halsharpdir=$(pkglibdir)
 halsharp_SCRIPTS = hal-sharp.dll
 EXTRA_DIST = $(halsharp_sources) HalTest.cs
-CLEANFILES = hal-sharp.dll AssemblyInfo.cs
-DISTCLEANFILES = Makefile.in *.exe *.mdb
+CLEANFILES = hal-sharp.dll hal-sharp.exe 
+DISTCLEANFILES = Makefile.in *.mdb AssemblyInfo.cs
 
 halsharp_sources = \
 	HalContext.cs \
@@ -15,6 +16,14 @@ halsharp_sources = \
 
 halsharp_build_sources = $(addprefix $(srcdir)/, $(halsharp_sources))
 
+all: hal-sharp.dll hal-sharp.exe
+
 hal-sharp.dll: 
-	$(MCS) -target:library -out:$@ -r:Mono.Posix $(halsharp_build_sources)
+	$(MCS) $(MCS_FLAGS) -target:library -out:$@ -r:Mono.Posix $(halsharp_build_sources)
+
+hal-sharp.exe:
+	$(MCS) $(MCS_FLAGS) -r:hal-sharp.dll -out:$@ HalTest.cs
+
+run:
+	mono hal-sharp.exe
 
