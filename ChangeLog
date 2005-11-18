@@ -1,5 +1,7 @@
 2005-11-18 Aaron Bockover  <aaron@aaronbock.net>
 
+	* configure.ac: Version 0.3, output src/hal-sharp.dll.config
+	* src/Makefile.am: Added hal-sharp.dll.config.in
 	* src/Makefile.am: Added rule to build HalTest.cs
 	* src/HalContext.cs: Removed destructor, must use Dispose()
 	* src/*.cs: Tabs->Spaces, reformatted code a little

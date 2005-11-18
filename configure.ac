@@ -1,6 +1,6 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE(hal-sharp, 0.2)
+AM_INIT_AUTOMAKE(hal-sharp, 0.3)
 AM_MAINTAINER_MODE
 
 AC_PROG_INSTALL
@@ -40,6 +40,7 @@ AC_OUTPUT([
 	Makefile
 	src/Makefile
 	src/AssemblyInfo.cs
+	src/hal-sharp.dll.config
 	hal-sharp.pc
 ])
 

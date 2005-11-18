@@ -1,9 +1,9 @@
 MCS_FLAGS=-debug
 halsharpdir=$(pkglibdir)
 halsharp_SCRIPTS = hal-sharp.dll
-EXTRA_DIST = $(halsharp_sources) HalTest.cs
+EXTRA_DIST = $(halsharp_sources) HalTest.cs hal-sharp.dll.config.in
 CLEANFILES = hal-sharp.dll hal-sharp.exe 
-DISTCLEANFILES = Makefile.in *.mdb AssemblyInfo.cs
+DISTCLEANFILES = Makefile.in *.mdb AssemblyInfo.cs hal-sharp.dll.config
 
 halsharp_sources = \
 	HalContext.cs \
