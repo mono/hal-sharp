@@ -41,7 +41,6 @@ namespace Hal
         
         public Context() : this(DbusBusType.System)
         {
-        
         }
         
         protected Context(IntPtr dbus_conn)
@@ -60,11 +59,6 @@ namespace Hal
             Initialize();
         }
         
-        public Context(DbusBusType type, bool initialize) : this(type)
-        {
-            Initialize();
-        }
-
         public void Dispose()
         {
             ContextShutdown();
