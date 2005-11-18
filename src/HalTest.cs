@@ -28,13 +28,15 @@
  
 using System;
 using Hal;
-using System.Collections;
 
 public class Entry
 {
     public static void Main()
     {
-        Context ctx = new Context();
-        ctx.Dispose();
+        using(Context ctx = new Context()) {
+            foreach(Device device in Device.FindByCapability(ctx, "portable_audio_player")) {
+                device.Print();
+            } 
+        }
     }
 }

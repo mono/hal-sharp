@@ -43,7 +43,21 @@ namespace Hal
         {
         }
         
-        protected Context(IntPtr dbus_conn)
+        public Context(IntPtr rawContext)
+        {
+            if(rawContext == IntPtr.Zero) {
+                throw new HalException("Could not create HAL Context"); 
+            }
+            
+            ctx_handle = new HandleRef(this, rawContext);
+        }
+        
+        public Context(DbusBusType type) : this(Unmanaged.dbus_bus_get(type, IntPtr.Zero), true)
+        {
+            Initialize();
+        }
+  
+        protected Context(IntPtr dbus_conn, bool dbus)
         {
             IntPtr ctx = Unmanaged.libhal_ctx_new();
             if(ctx == IntPtr.Zero) {
@@ -52,11 +66,6 @@ namespace Hal
             
             ctx_handle = new HandleRef(this, ctx);    
             DbusConnection = dbus_conn;
-        }
-        
-        public Context(DbusBusType type) : this(Unmanaged.dbus_bus_get(type, IntPtr.Zero))
-        {
-            Initialize();
         }
         
         public void Dispose()

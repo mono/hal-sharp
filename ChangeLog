@@ -1,5 +1,8 @@
 2005-11-18 Aaron Bockover  <aaron@aaronbock.net>
-
+	
+	* src/HalContext.cs: Added a public Context(IntPtr) constructor to 
+	enable using an already created/initialized native context
+	* src/Makefile.am: renamed hal-sharp.exe test to hal-test.exe
 	* configure.ac: Version 0.3, output src/hal-sharp.dll.config
 	* src/Makefile.am: Added hal-sharp.dll.config.in
 	* src/Makefile.am: Added rule to build HalTest.cs
