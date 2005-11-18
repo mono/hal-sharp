@@ -18,10 +18,10 @@ halsharp_build_sources = $(addprefix $(srcdir)/, $(halsharp_sources))
 
 all: hal-sharp.dll hal-sharp.exe
 
-hal-sharp.dll: 
+hal-sharp.dll: $(halsharp_build_sources)
 	$(MCS) $(MCS_FLAGS) -target:library -out:$@ -r:Mono.Posix $(halsharp_build_sources)
 
-hal-sharp.exe:
+hal-sharp.exe: HalTest.cs
 	$(MCS) $(MCS_FLAGS) -r:hal-sharp.dll -out:$@ HalTest.cs
 
 run:
