@@ -1,3 +1,10 @@
+2005-11-26  Aaron Bockover  <aaron@aaronbock.net>
+
+	* src/HalContext.cs: New Parent property that returns an instantiated
+	Hal.Device object based on the info.parent HAL property, which returns 
+	a UDI of a device's parent; added Context property to return the Device's
+	HAL Context
+
 2005-11-18 Aaron Bockover  <aaron@aaronbock.net>
 	
 	* src/HalContext.cs:
