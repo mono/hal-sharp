@@ -29,14 +29,10 @@
 using System;
 using Hal;
 
-public class Entry
+public static class HalTest
 {
-    public static void Main()
+    public static void Main(string [] args)
     {
-        using(Context ctx = new Context()) {
-            foreach(Device device in Device.FindByCapability(ctx, "portable_audio_player")) {
-                device.Print();
-            } 
-        }
+        Context ctx = new Context();
     }
 }

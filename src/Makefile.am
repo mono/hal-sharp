@@ -6,6 +6,7 @@ CLEANFILES = hal-sharp.dll hal-test.exe
 DISTCLEANFILES = Makefile.in *.mdb AssemblyInfo.cs hal-sharp.dll.config
 
 halsharp_sources = \
+	DBusError.cs \
 	HalContext.cs \
 	HalDevice.cs \
 	HalUnmanaged.cs \

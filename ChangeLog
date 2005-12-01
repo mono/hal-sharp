@@ -1,3 +1,12 @@
+2005-11-30  Aaron Bockover  <aaron@aaronbock.net>
+
+	* src/HalDevice.cs: Use DBusError when adding/removing property watch
+	* src/HalTest.cs: Stripped down test
+	* src/Makefile.am: Added DBusError.cs
+	* src/DBusError.cs: Bindings to DBusError (dbus_error_init, 
+	dbus_error_free, dbus_error_is_set)
+	* src/HalContext.cs: Use DBusError in places
+
 2005-11-26  Aaron Bockover  <aaron@aaronbock.net>
 
 	* src/HalContext.cs: New Parent property that returns an instantiated
