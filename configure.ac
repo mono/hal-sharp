@@ -28,6 +28,21 @@ if test "x$MONO" = "xno"; then
 	AC_MSG_ERROR([You need to install the Mono runtime])
 fi
 
+dnl monodoc
+AC_PATH_PROG(MDASSEMBLER, mdassembler, no)
+AC_PATH_PROG(MONODOCER, monodocer, no)
+if test "x$MONODOCER" = "xno" -o "x$MDASSEMBLER" = "xno"; then
+  enable_monodoc=no
+  doc_sources_dir=
+else
+  enable_monodoc=yes
+  doc_sources_dir="`pkg-config --variable=sourcesdir monodoc`"
+fi
+AC_SUBST(MDASSEMBLER)
+AC_SUBST(MONODOCER)
+AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
+
+
 dnl Test for HAL
 PKG_CHECK_MODULES(HAL,
 	dbus-1 \
@@ -41,7 +56,17 @@ AC_OUTPUT([
 	src/Makefile
 	src/AssemblyInfo.cs
 	src/hal-sharp.dll.config
+	doc/Makefile
 	hal-sharp.pc
 ])
 
+echo "
+hal-sharp-$VERSION
+
+    Install Prefix:    ${prefix}
+    Mono C# Compiler:  ${MCS}
+    Mono Runtime:      ${MONO}
+
+    Documentation:     ${enable_monodoc}
+"
 

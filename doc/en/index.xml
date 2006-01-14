@@ -1,0 +1,46 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="hal-sharp" Version="0.3.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany(Company="Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright(Copyright="Copyright (c) 2005 Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription(Description="HAL API Bindings")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle(Title="hal-sharp")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Hal">
+      <Type Name="DBusError" />
+      <Type Name="Context" />
+      <Type Name="Device" />
+      <Type Name="Device+FindBy" />
+      <Type Name="HalException" />
+      <Type Name="DeviceAddedArgs" />
+      <Type Name="DeviceRemovedArgs" />
+      <Type Name="DeviceNewCapabilityArgs" />
+      <Type Name="DeviceLostCapabilityArgs" />
+      <Type Name="DevicePropertyModifiedArgs" />
+      <Type Name="DeviceConditionArgs" />
+      <Type Name="DeviceAddedHandler" />
+      <Type Name="DeviceRemovedHandler" />
+      <Type Name="DeviceNewCapabilityHandler" />
+      <Type Name="DeviceLostCapabilityHandler" />
+      <Type Name="DevicePropertyModifiedHandler" />
+      <Type Name="DeviceConditionHandler" />
+      <Type Name="DbusBusType" />
+      <Type Name="PropertyType" />
+    </Namespace>
+  </Types>
+  <Title>hal-sharp</Title>
+</Overview>

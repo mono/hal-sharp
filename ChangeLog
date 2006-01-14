@@ -1,3 +1,15 @@
+2006-01-13  Eric Butler  <eric@extremeboredom.net>
+
+	* configure.ac: Generate makefile in doc directory, check for monodoc
+	* Makefile.am: Compile doc directory
+	* doc/en/*: Added initial english docs
+	* doc/hal-sharp-docs.source: New file for docs
+	* doc/Makefile.am: New filee dor docs
+
+2006-01-13  Aaron Bockover  <aaron@aaronbock.net>
+
+	* Makefile.am: Changed DISTCLEANFILES to MAINTAINERCLEANFILES
+
 2006-01-13  Aaron Bockover  <aaron@aaronbock.net>
 
 	* src/hal-sharp.dll.config.in: This was missing, how cute
