@@ -1,5 +1,9 @@
 2006-07-18  Aaron Bockover  <abock@gnome.org>
 
+	* src/HalDevice.cs: Return empty Device/string arrays instead of null
+
+2006-07-18  Aaron Bockover  <abock@gnome.org>
+
 	* src/HalDevice.cs: Added null checks for Hal.Context to prevent
 	crashing in places
 

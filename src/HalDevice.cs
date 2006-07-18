@@ -45,9 +45,9 @@ namespace Hal
         
         public Device(Context ctx, string udi)
         {
-			if(ctx == null) {
-				throw new ApplicationException("Cannot create HAL device; context is null");
-			}
+            if(ctx == null) {
+                throw new ApplicationException("Cannot create HAL device; context is null");
+            }
 
             this.ctx = ctx;
             this.udi = udi;
@@ -271,9 +271,9 @@ namespace Hal
             string [] deviceUdis;
             int device_count;
 
-			if(ctx == null) {
-				return null;
-			}
+            if(ctx == null) {
+                return new string[0];
+            }
 
             switch(findMethod) {
                 case FindBy.StringMatch:
@@ -299,10 +299,10 @@ namespace Hal
         
         public static Device [] UdisToDevices(Context ctx, string [] udis)
         {
-			if(ctx == null) {
-				return null;
-			}
-		
+            if(ctx == null) {
+                return new Device[0];
+            }
+        
             Device [] devices = new Device[udis.Length];
             
             for(int i = 0; i < udis.Length; i++) {
